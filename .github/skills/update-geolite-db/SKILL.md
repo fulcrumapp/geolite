@@ -44,6 +44,16 @@ ls -lh GeoLite2-City-*.mmdb
 
 All files should report as "data" or similar binary format. If a file reports as HTML or is suspiciously small, the download failed — retry or report the error.
 
+Also verify the SHA256 checksum against the published value from the mirror:
+
+```bash
+curl -L -o "GeoLite2-City.mmdb.sha256sum" "https://github.com/P3TERX/GeoLite.mmdb/releases/download/TAG/GeoLite2-City.mmdb.sha256sum"
+sha256sum -c GeoLite2-City.mmdb.sha256sum
+rm GeoLite2-City.mmdb.sha256sum
+```
+
+If the checksum does not match, delete the downloaded file and retry. Do **not** commit an unverified database.
+
 ## Step 5: Ensure git-lfs is tracking
 
 Confirm git-lfs is installed and tracking `.mmdb` files:
@@ -73,7 +83,7 @@ git push origin task/update-geolite2-db-YYYY-MM-DD
 
 ## Step 8: Open a pull request
 
-Open a PR targeting `master` for the Chaos Monkeys team (`@fulcrumapp/chaos-monkeys`) to review.
+Open a PR targeting the default branch for the Chaos Monkeys team (`@fulcrumapp/chaos-monkeys`) to review.
 
 ## Important notes
 

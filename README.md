@@ -16,15 +16,20 @@ This repository is owned by the **Chaos Monkeys** team (`@fulcrumapp/chaos-monke
 
 ## Updating the Database
 
-GeoLite2 databases are updated regularly by MaxMind. To update:
+GeoLite2 databases are updated regularly by MaxMind. You can update this repository in one of two ways:
 
-1. Download the latest GeoLite2-City MMDB from [MaxMind](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)
-2. Add the file with the naming convention `GeoLite2-City-YYYY-MM-DD.mmdb`
-3. Open a PR for review by the Chaos Monkeys team
+1. **Manual update from MaxMind**
+   - Download the latest GeoLite2-City MMDB directly from [MaxMind](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data).
+   - Add the file with the naming convention `GeoLite2-City-YYYY-MM-DD.mmdb`.
+2. **Automated update via Copilot (GitHub mirror)**
+   - Use the Copilot skill described below, which fetches the latest GeoLite2-City MMDB from the [`P3TERX/GeoLite.mmdb` GitHub mirror](https://github.com/P3TERX/GeoLite.mmdb) that republishes the unmodified MaxMind GeoLite2 City database.
+3. **For either method**, open a PR for review by the Chaos Monkeys team.
 
 ### Using Copilot
 
-This repo includes a Copilot [agent skill](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills) to automate the update. Copilot will automatically use it when you ask it to update the GeoLite2 database — for example:
+This repo includes a Copilot [agent skill](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills) to automate the update. The skill downloads the latest GeoLite2-City MMDB from the [`P3TERX/GeoLite.mmdb` GitHub mirror](https://github.com/P3TERX/GeoLite.mmdb), which distributes the unmodified MaxMind GeoLite2 City database.
+
+Copilot will automatically use this skill when you ask it to update the GeoLite2 database — for example:
 
 > "Update the GeoLite2 database to the latest version"
 
